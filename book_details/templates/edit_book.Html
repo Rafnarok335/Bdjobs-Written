@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <form action="{% url 'edit' pk=book.serial_number %}" method="POST">
+            {% csrf_token %}
+           <label>Name</label>
+           <input type="text" name="book_name" value="{{book.title}}">
+           <label>Publisher Name</label>
+           <input type="text" name="publisher_name" value="{{book.publisher_name}}">
+           <label>Publisher Age</label>
+           <input type="text" name="publisher_age" value="{{book.publisher_age}}">
+           <label>Page No.</label>
+           <input type="text" name="page_no" value="{{book.page_no}}">
+           <label>Publication Date</label>
+           <input type='date' name="publication_date">
+           <label>Type</label>
+           <select name="genre">
+               <option value="sci-fi">sci-fi</option>
+               <option value="drama">drama</option>
+               <option value="novel">novel</option>
+           </select>
+           <button type="submit" value="Submit"> Save</button>
+       </form>
+        <script src="" async defer></script>
+    </body>
+</html>

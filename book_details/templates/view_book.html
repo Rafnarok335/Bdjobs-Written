@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Book List View</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;}
+            .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+              font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+            </style>
+            <h2>View Booklist</h2>
+            <table class="tg">
+            <thead>
+              <tr>
+                <th class="tg-0pky">SL No.</th>
+                <th class="tg-0pky">Name</th>
+                <th colspan="2" class="tg-0pky">Action</th>
+
+              </tr>
+            </thead>
+            <tbody>
+            {% for b in books %}
+              <tr>
+                <td class="tg-0pky">{{b.serial_number}}</td>
+                <td class="tg-0pky">{{b.title}}</td>
+                <td class="tg-0pky"> <a href="{% url 'edit' pk=b.serial_number%}">Edit</a></td>
+                <td class="tg-0pky"><a href="{% url 'delete' pk=b.serial_number%}">Delete</a></td>
+             </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+
+        <script src="" async defer></script>
+    </body>
+</html>
