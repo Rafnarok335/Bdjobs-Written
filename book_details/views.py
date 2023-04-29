@@ -16,9 +16,6 @@ def viewlist(request):
     return render(request, 'view_book.html', context)
 
 
-def search(request):
-    return render(request, 'search.html')
-
 
 def addBook(request):
     if request.method == "POST":
@@ -72,4 +69,9 @@ def delete(request, pk):
 
 
 def search(request):
-    return render(request, 'search_book.html')
+    book = Book.objects.all()
+    context = {
+        'book': book
+    }
+    return render(request, 'search_book.html', context)
+
