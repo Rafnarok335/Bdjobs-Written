@@ -69,3 +69,7 @@ def delete(request, pk):
         book.delete()
         return redirect('view')
     return render(request, 'delete.html', context)
+
+
+def search(request):
+    return render(request, 'search_book.html')
